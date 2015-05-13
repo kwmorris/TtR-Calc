@@ -75,11 +75,22 @@ public class Globals {
     private int[] colorPrimary = {R.color.colorPrimary, R.color.blackPrimary, R.color.redPrimary,
             R.color.yellowPrimary, R.color.greenPrimary, R.color.bluePrimary};
 
+    private int[] colorDark = {R.color.colorDark, R.color.blackDark, R.color.redDark,
+            R.color.yellowDark, R.color.greenDark, R.color.blueDark};
+
     public int[] getColorPrimary(){
         return colorPrimary;
     }
 
     public int getColorPrimary(int pos){
         return colorPrimary[pos];
+    }
+
+    public int[] getColorDark(){
+        return colorDark;
+    }
+
+    public int getColorDark(int pos){
+        return colorDark[pos];
     }
 }

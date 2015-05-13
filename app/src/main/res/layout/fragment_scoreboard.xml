@@ -1,18 +1,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
 
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         />
 
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:color="@color/colorPrimary"
+        android:layout_marginBottom="16dp"
         android:layout_below="@id/cardPlayer1"
         />
 
@@ -20,6 +24,7 @@
         android:id="@+id/cardPlayer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_below="@id/cardPlayer2"
         />
 
@@ -27,6 +32,7 @@
         android:id="@+id/cardPlayer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_below="@id/cardPlayer3"
         />
 

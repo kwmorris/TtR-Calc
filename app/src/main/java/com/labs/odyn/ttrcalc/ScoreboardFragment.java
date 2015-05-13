@@ -95,6 +95,8 @@ public class ScoreboardFragment extends Fragment {
             card.addCardThumbnail(thumb);
         }
 
+        card.setBackgroundColorResourceId(g.getColorPrimary(0));
+
         return card;
     }
 }
