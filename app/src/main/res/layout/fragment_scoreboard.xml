@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
 
-    <it.gmariotti.cardslib.library.view.CardListView
-        android:id="@+id/cardListSB"
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/cardPlayer1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         />
 
 </FrameLayout>
