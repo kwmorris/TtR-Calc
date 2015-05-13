@@ -2,11 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/placeHolderSB"
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:id="@+id/cardListSB"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        />
 
 </FrameLayout>
