@@ -17,6 +17,7 @@ public class MainActivity extends FragmentActivity {
         //Initialize the ViewPager and set its adapter
         ViewPager tabPager = (ViewPager) findViewById(R.id.tabPager);
         tabPager.setAdapter(new TabFragmentPagerAdapter(getSupportFragmentManager()));
+        tabPager.setCurrentItem(1);
 
         //Give the PagerSlidingTabStrip the ViewPager
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabStrip);
