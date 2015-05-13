@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class ScoreboardFragment extends Fragment {
+public class EditFragment extends Fragment {
 
-    public static ScoreboardFragment newInstance() {
-        return new ScoreboardFragment();
+    public static EditFragment newInstance() {
+        return new EditFragment();
     }
 
-    public ScoreboardFragment() {
+    public EditFragment() {
         // Required empty public constructor
     }
 
@@ -26,9 +26,9 @@ public class ScoreboardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
-        TextView placeHolder = (TextView) view.findViewById(R.id.placeHolderSB);
-        placeHolder.setText("Place Holder Scoreboard");
+        View view = inflater.inflate(R.layout.fragment_edit, container, false);
+        TextView placeHolder = (TextView) view.findViewById(R.id.placeHolderE);
+        placeHolder.setText("Place Holder Edit");
         return view;
 
     }
