@@ -13,4 +13,7 @@
     <color name="yellowDark">#FBC02D</color>
     <color name="greenDark">#388E3C</color>
     <color name="blueDark">#1976D2</color>
+
+    <color name="colorPrimary">@color/bluePrimary</color>
+    <color name="colorDark">@color/blueDark</color>
 </resources>
