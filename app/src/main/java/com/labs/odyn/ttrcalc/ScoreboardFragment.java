@@ -40,9 +40,22 @@ public class ScoreboardFragment extends Fragment {
 
         //Create a card for player1
         Card cardPlayer1 = createCard(R.layout.row_card, null, null);
+        Card cardPlayer2 = createCard(R.layout.row_card, null, null);
+        Card cardPlayer3 = createCard(R.layout.row_card, null, null);
+        Card cardPlayer4 = createCard(R.layout.row_card, null, null);
+        Card cardPlayer5 = createCard(R.layout.row_card, null, null);
 
         CardViewNative player1View = (CardViewNative) view.findViewById(R.id.cardPlayer1);
+        CardViewNative player2View = (CardViewNative) view.findViewById(R.id.cardPlayer2);
+        CardViewNative player3View = (CardViewNative) view.findViewById(R.id.cardPlayer3);
+        CardViewNative player4View = (CardViewNative) view.findViewById(R.id.cardPlayer4);
+        CardViewNative player5View = (CardViewNative) view.findViewById(R.id.cardPlayer5);
+
         player1View.setCard(cardPlayer1);
+        player2View.setCard(cardPlayer2);
+        player3View.setCard(cardPlayer3);
+        player4View.setCard(cardPlayer4);
+        player5View.setCard(cardPlayer5);
 
         return view;
     }
