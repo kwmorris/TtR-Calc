@@ -52,21 +52,34 @@ public class Globals {
     }
 
     //Set and Get playerColor
-    private String[] playerColors = new String[5];
+    private int[] playerColors = //new int[5];
+            {0,0,0,0,0};
 
-    public void setPlayerColors(String[] pNames){
-        playerColors = pNames;
+    public void setPlayerColors(int[] pColors){
+        playerColors = pColors;
     }
 
-    public void setPlayerColors(String pName, int pos){
-        playerColors[pos] = pName;
+    public void setPlayerColors(int pColor, int pos){
+        playerColors[pos] = pColor;
     }
 
-    public String[] getPlayerColors(){
+    public int[] getPlayerColors(){
         return playerColors;
     }
 
-    public String getPlayerColors(int pos){
+    public int getPlayerColors(int pos){
         return playerColors[pos];
+    }
+
+    //Color options
+    private int[] colorPrimary = {R.color.colorPrimary, R.color.blackPrimary, R.color.redPrimary,
+            R.color.yellowPrimary, R.color.greenPrimary, R.color.bluePrimary};
+
+    public int[] getColorPrimary(){
+        return colorPrimary;
+    }
+
+    public int getColorPrimary(int pos){
+        return colorPrimary[pos];
     }
 }

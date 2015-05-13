@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,23 @@ public class ScoreboardFragment extends Fragment {
         Card cardPlayer3 = createCard(R.layout.row_card, null, null);
         Card cardPlayer4 = createCard(R.layout.row_card, null, null);
         Card cardPlayer5 = createCard(R.layout.row_card, null, null);
+
+        //cardPlayer1.setClickable(true);
+        cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                int color = g.getPlayerColors(0);
+                color++;
+                if (color > 5){
+                    color = 0;
+                }
+                g.setPlayerColors(color, 0);
+                card.setBackgroundColorResourceId(g.getColorPrimary(color));
+                card.notifyDataSetChanged();
+
+                Toast.makeText(getActivity(), "Card 1 clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         CardViewNative player1View = (CardViewNative) view.findViewById(R.id.cardPlayer1);
         CardViewNative player2View = (CardViewNative) view.findViewById(R.id.cardPlayer2);
