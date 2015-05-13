@@ -15,6 +15,6 @@ public class MainActivity extends Activity {
 
         //Initialize the ViewPager and set its adapter
         ViewPager tabPager = (ViewPager) findViewById(R.id.tabPager);
-        tabPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+        //tabPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
     }
 }
