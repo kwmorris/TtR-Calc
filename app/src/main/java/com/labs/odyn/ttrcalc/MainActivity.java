@@ -2,7 +2,9 @@ package com.labs.odyn.ttrcalc;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 
@@ -15,6 +17,5 @@ public class MainActivity extends Activity {
 
         //Initialize the ViewPager and set its adapter
         ViewPager tabPager = (ViewPager) findViewById(R.id.tabPager);
-        //tabPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
     }
 }
