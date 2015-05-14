@@ -7,20 +7,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
-import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
 
 public class ScoreboardFragment extends Fragment {
 
     private static Globals g = new Globals().getInstance();
-    private static String[] playerNames = g.getPlayerNames();
+
+    private static Card cardPlayer1;
+    private static Card cardPlayer2;
+    private static Card cardPlayer3;
+    private static Card cardPlayer4;
+    private static Card cardPlayer5;
 
     public static ScoreboardFragment newInstance() {
         return new ScoreboardFragment();
@@ -40,26 +41,44 @@ public class ScoreboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
         //Create a card for player1
-        Card cardPlayer1 = createCard(R.layout.row_card, null, null);
-        Card cardPlayer2 = createCard(R.layout.row_card, null, null);
-        Card cardPlayer3 = createCard(R.layout.row_card, null, null);
-        Card cardPlayer4 = createCard(R.layout.row_card, null, null);
-        Card cardPlayer5 = createCard(R.layout.row_card, null, null);
+        cardPlayer1 = createCard(R.layout.row_card, null, null);
+        cardPlayer2 = createCard(R.layout.row_card, null, null);
+        cardPlayer3 = createCard(R.layout.row_card, null, null);
+        cardPlayer4 = createCard(R.layout.row_card, null, null);
+        cardPlayer5 = createCard(R.layout.row_card, null, null);
 
-        //cardPlayer1.setClickable(true);
         cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                int color = g.getPlayerColors(0);
-                color++;
-                if (color > 5){
-                    color = 0;
-                }
-                g.setPlayerColors(color, 0);
-                card.setBackgroundColorResourceId(g.getColorPrimary(color));
-                card.notifyDataSetChanged();
+                updateCards(1);
+            }
+        });
 
-                Toast.makeText(getActivity(), "Card 1 clicked", Toast.LENGTH_SHORT).show();
+        cardPlayer2.setOnClickListener(new Card.OnCardClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                updateCards(2);
+            }
+        });
+
+        cardPlayer3.setOnClickListener(new Card.OnCardClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                updateCards(3);
+            }
+        });
+
+        cardPlayer4.setOnClickListener(new Card.OnCardClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                updateCards(4);
+            }
+        });
+
+        cardPlayer5.setOnClickListener(new Card.OnCardClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                updateCards(5);
             }
         });
 
@@ -98,5 +117,81 @@ public class ScoreboardFragment extends Fragment {
         card.setBackgroundColorResourceId(g.getColorPrimary(0));
 
         return card;
+    }
+
+    private void updateCards (int clicked){
+        int activePlayer = g.getActivePlayer();
+
+        if (activePlayer == clicked){
+            switch (clicked){
+                case 1:
+                    cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer1.notifyDataSetChanged();
+                    break;
+                case 2:
+                    cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer2.notifyDataSetChanged();
+                    break;
+                case 3:
+                    cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer3.notifyDataSetChanged();
+                    break;
+                case 4:
+                    cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer4.notifyDataSetChanged();
+                    break;
+                case 5:
+                    cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer5.notifyDataSetChanged();
+                    break;
+            }
+            g.setActivePlayer(0);
+        } else{
+            switch (activePlayer){
+                case 1:
+                    cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer1.notifyDataSetChanged();
+                    break;
+                case 2:
+                    cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer2.notifyDataSetChanged();
+                    break;
+                case 3:
+                    cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer3.notifyDataSetChanged();
+                    break;
+                case 4:
+                    cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer4.notifyDataSetChanged();
+                    break;
+                case 5:
+                    cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer5.notifyDataSetChanged();
+                    break;
+            }
+            switch (clicked){
+                case 1:
+                    cardPlayer1.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
+                    cardPlayer1.notifyDataSetChanged();
+                    break;
+                case 2:
+                    cardPlayer2.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
+                    cardPlayer2.notifyDataSetChanged();
+                    break;
+                case 3:
+                    cardPlayer3.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
+                    cardPlayer3.notifyDataSetChanged();
+                    break;
+                case 4:
+                    cardPlayer4.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
+                    cardPlayer4.notifyDataSetChanged();
+                    break;
+                case 5:
+                    cardPlayer5.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
+                    cardPlayer5.notifyDataSetChanged();
+                    break;
+            }
+            g.setActivePlayer(clicked);
+        }
     }
 }

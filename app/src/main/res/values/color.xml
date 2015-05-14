@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purplePrimary">#9C27B0</color>
-    <color name="blackPrimary">#616161</color>
+    <color name="blackPrimary">#808080</color>
     <color name="redPrimary">#F44336</color>
     <color name="yellowPrimary">#FFEB3B</color>
     <color name="greenPrimary">#4CAF50</color>
     <color name="bluePrimary">#2196F3</color>
 
     <color name="purpleDark">#7B1FA2</color>
-    <color name="blackDark">#212121</color>
+    <color name="blackDark">#505050</color>
     <color name="redDark">#D32F2F</color>
     <color name="yellowDark">#FBC02D</color>
     <color name="greenDark">#388E3C</color>

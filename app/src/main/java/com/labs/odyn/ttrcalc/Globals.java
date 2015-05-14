@@ -93,4 +93,15 @@ public class Globals {
     public int getColorDark(int pos){
         return colorDark[pos];
     }
+
+    //Set and Get the activePlayer
+    private int activePlayer;
+
+    public void setActivePlayer (int aPlayer){
+        activePlayer = aPlayer;
+    }
+
+    public int getActivePlayer (){
+        return activePlayer;
+    }
 }
