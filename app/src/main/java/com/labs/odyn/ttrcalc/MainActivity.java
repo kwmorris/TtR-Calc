@@ -17,7 +17,7 @@ public class MainActivity extends FragmentActivity {
         //Default values
         String[] dNames = {"P1","P2","P3","P4","P5"};
         int[] dScores = //{0,0,0,0,0};
-                {123,456,789,012,345};
+                {123,456,789,210,543};
         int[] dColors = //{0,0,0,0,0};
                 {1,2,3,4,5};
 

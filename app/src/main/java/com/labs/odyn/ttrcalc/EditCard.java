@@ -23,7 +23,7 @@ public class EditCard extends Card {
     }
 
     public EditCard(Context context) {
-        super(context, R.layout.edit_card);
+        super(context, R.layout.card_edit);
     }
 
 
