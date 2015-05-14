@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
@@ -38,11 +37,11 @@ public class ScoreboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
-        cardPlayer1 = createCard(R.layout.row_card, 0);
-        cardPlayer2 = createCard(R.layout.row_card, 1);
-        cardPlayer3 = createCard(R.layout.row_card, 2);
-        cardPlayer4 = createCard(R.layout.row_card, 3);
-        cardPlayer5 = createCard(R.layout.row_card, 4);
+        cardPlayer1 = createCard(0);
+        cardPlayer2 = createCard(1);
+        cardPlayer3 = createCard(2);
+        cardPlayer4 = createCard(3);
+        cardPlayer5 = createCard(4);
 
         cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
             @Override
@@ -79,6 +78,14 @@ public class ScoreboardFragment extends Fragment {
             }
         });
 
+        /*TODO: Implement?
+        //Call replace
+        card3.setInnerLayout(R.layout.carddemo_suggested_inner_content);
+        cardView3 = (CardViewNative) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
+        cardView3.replaceCard(card3);
+         */
+
+
         CardViewNative player1View = (CardViewNative) view.findViewById(R.id.cardPlayer1);
         CardViewNative player2View = (CardViewNative) view.findViewById(R.id.cardPlayer2);
         CardViewNative player3View = (CardViewNative) view.findViewById(R.id.cardPlayer3);
@@ -94,7 +101,7 @@ public class ScoreboardFragment extends Fragment {
         return view;
     }
 
-    private PlayerCard createCard(int layout, int player) {
+    private PlayerCard createCard(int player) {
         PlayerCard card = new PlayerCard(this.getActivity(), g.getPlayerNames(player), g.getPlayerScores(0));
 
         card.setBackgroundColorResourceId(g.getColorPrimary(0));

@@ -31,5 +31,4 @@ public class PlayerCard extends Card {
         cardName.setText(pName);
         cardScore.setText(String.valueOf(pScore));
     }
-
 }
