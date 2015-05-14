@@ -14,11 +14,13 @@ public class ScoreboardFragment extends Fragment {
 
     private static Globals g = new Globals().getInstance();
 
-    private static Card cardPlayer1;
-    private static Card cardPlayer2;
-    private static Card cardPlayer3;
-    private static Card cardPlayer4;
-    private static Card cardPlayer5;
+    private static PlayerCard cardPlayer1;
+    private static PlayerCard cardPlayer2;
+    private static PlayerCard cardPlayer3;
+    private static PlayerCard cardPlayer4;
+    private static PlayerCard cardPlayer5;
+
+    //private static CardViewNative
 
     public static ScoreboardFragment newInstance() {
         return new ScoreboardFragment();
@@ -46,44 +48,37 @@ public class ScoreboardFragment extends Fragment {
         cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateCards(1);
+                updateActiveCard(1);
             }
         });
 
         cardPlayer2.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateCards(2);
+                updateActiveCard(2);
             }
         });
 
         cardPlayer3.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateCards(3);
+                updateActiveCard(3);
             }
         });
 
         cardPlayer4.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateCards(4);
+                updateActiveCard(4);
             }
         });
 
         cardPlayer5.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateCards(5);
+                updateActiveCard(5);
             }
         });
-
-        /*TODO: Implement?
-        //Call replace
-        card3.setInnerLayout(R.layout.carddemo_suggested_inner_content);
-        cardView3 = (CardViewNative) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
-        cardView3.replaceCard(card3);
-         */
 
 
         CardViewNative player1View = (CardViewNative) view.findViewById(R.id.cardPlayer1);
@@ -102,14 +97,14 @@ public class ScoreboardFragment extends Fragment {
     }
 
     private PlayerCard createCard(int player) {
-        PlayerCard card = new PlayerCard(this.getActivity(), g.getPlayerNames(player), g.getPlayerScores(0));
+        PlayerCard card = new PlayerCard(this.getActivity(), player);
 
-        card.setBackgroundColorResourceId(g.getColorPrimary(0));
+        card.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
 
         return card;
     }
 
-    private void updateCards (int clicked){
+    public void updateActiveCard (int clicked){
         int activePlayer = g.getActivePlayer();
 
         if (activePlayer == clicked){
@@ -185,40 +180,53 @@ public class ScoreboardFragment extends Fragment {
         }
     }
 
-    /*public void updateCards (int player, String pName){
-        g.setPlayerNames(pName, player);
-        switch (player){
+    public void updateCardName(int player){
+        switch (player) {
             case 1:
-                //cardPlayer1.
+                cardPlayer1.setName(0);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 2:
-                cardPlayer2.setTitle(pName);
+                cardPlayer1.setName(1);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 3:
-                cardPlayer3.setTitle(pName);
+                cardPlayer1.setName(2);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 4:
-                cardPlayer4.setTitle(pName);
+                cardPlayer1.setName(3);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 5:
-                cardPlayer5.setTitle(pName);
+                cardPlayer1.setName(4);
+                cardPlayer1.notifyDataSetChanged();
                 break;
         }
     }
 
-    private void updateCards (int player, int pScore){
-        switch (player){
+    public void updateCardScore(int player){
+        switch (player) {
             case 1:
-                cardPlayer1.setTitle(g.getPlayerNames(0));
+                cardPlayer1.setScore(0);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 2:
+                cardPlayer1.setName(1);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 3:
+                cardPlayer1.setName(2);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 4:
+                cardPlayer1.setName(3);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 5:
+                cardPlayer1.setName(4);
+                cardPlayer1.notifyDataSetChanged();
                 break;
         }
-    }*/
+    }
 }

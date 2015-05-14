@@ -12,10 +12,13 @@ public class PlayerCard extends Card {
     protected String pName;
     protected int pScore;
 
-    public PlayerCard(Context context, String playerName, int playerScore){
+    //Globals
+    Globals g = new Globals().getInstance();
+
+    public PlayerCard(Context context, int player){
         this(context);
-        pName = playerName;
-        pScore = playerScore;
+        pName = g.getPlayerNames(player);
+        pScore = g.getPlayerScores(player);
     }
 
     public PlayerCard(Context context) {
@@ -30,5 +33,13 @@ public class PlayerCard extends Card {
 
         cardName.setText(pName);
         cardScore.setText(String.valueOf(pScore));
+    }
+
+    public void setName (int player){
+        pName = g.getPlayerNames(player);
+    }
+
+    public void setScore (int player){
+        pScore = g.getPlayerScores(player);
     }
 }
