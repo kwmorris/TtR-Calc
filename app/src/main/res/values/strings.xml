@@ -9,5 +9,6 @@
     <string name="title_text">Title Text</string>
     <string name="score_text">###</string>
 
+    <string name="hint_text">Player Name</string>
     <string name="apply">Apply</string>
 </resources>

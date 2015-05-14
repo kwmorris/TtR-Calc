@@ -7,8 +7,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:imeOptions="actionDone"
         android:textSize="20sp"
-        android:hint="@string/title_text"/>
+        android:hint="@string/hint_text"/>
 
     <Button
         android:id="@+id/editButton"
