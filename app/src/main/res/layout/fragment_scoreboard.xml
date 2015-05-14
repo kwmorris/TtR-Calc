@@ -1,12 +1,51 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/placeHolderSB"
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/cardPlayer1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        />
 
-</FrameLayout>
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/cardPlayer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/cardPlayer1"
+        />
+
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/cardPlayer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/cardPlayer2"
+        />
+
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/cardPlayer4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/cardPlayer3"
+        />
+
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/cardPlayer5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/cardPlayer4"
+        />
+
+</RelativeLayout>

@@ -14,6 +14,19 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Default values
+        String[] dNames = {"P1","P2","P3","P4","P5"};
+        int[] dScores = //{0,0,0,0,0};
+                {5,4,3,2,1};
+        int[] dColors = //{0,0,0,0,0};
+                {1,2,3,4,5};
+
+        //Initialize Globals
+        Globals g = new Globals().getInstance();
+        g.setPlayerNames(dNames);
+        g.setPlayerScores(dScores);
+        g.setPlayerColors(dColors);
+
         //Initialize the ViewPager and set its adapter
         ViewPager tabPager = (ViewPager) findViewById(R.id.tabPager);
         tabPager.setAdapter(new TabFragmentPagerAdapter(getSupportFragmentManager()));
