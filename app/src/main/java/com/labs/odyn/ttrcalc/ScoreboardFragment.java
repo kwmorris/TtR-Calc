@@ -5,11 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
 
@@ -41,11 +38,11 @@ public class ScoreboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
         //Create a card for player1
-        cardPlayer1 = createCard(R.layout.row_card, null, null);
-        cardPlayer2 = createCard(R.layout.row_card, null, null);
-        cardPlayer3 = createCard(R.layout.row_card, null, null);
-        cardPlayer4 = createCard(R.layout.row_card, null, null);
-        cardPlayer5 = createCard(R.layout.row_card, null, null);
+        cardPlayer1 = createCard(R.layout.row_card);
+        cardPlayer2 = createCard(R.layout.row_card);
+        cardPlayer3 = createCard(R.layout.row_card);
+        cardPlayer4 = createCard(R.layout.row_card);
+        cardPlayer5 = createCard(R.layout.row_card);
 
         cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
             @Override
@@ -97,22 +94,8 @@ public class ScoreboardFragment extends Fragment {
         return view;
     }
 
-    private Card createCard(int layout, CardHeader header, CardThumbnail thumb) {
-        Card card = new Card(this.getActivity(), layout);
-
-        if (header != null) {
-            //Attach header
-            //CardHeader header = new CardHeader(this.getActivity());
-            //header.setTitle("Hello World");
-            card.addCardHeader(header);
-        }
-
-        if (thumb != null) {
-            //Attach thumbnail
-            //CardThumbnail thumb = new CardThumbnail(this.getActivity());
-            //thumb.setDrawableResource(R.mipmap.ic_launcher);
-            card.addCardThumbnail(thumb);
-        }
+    private PlayerCard createCard(int layout) {
+        PlayerCard card = new PlayerCard(this.getActivity());
 
         card.setBackgroundColorResourceId(g.getColorPrimary(0));
 
@@ -192,6 +175,22 @@ public class ScoreboardFragment extends Fragment {
                     break;
             }
             g.setActivePlayer(clicked);
+        }
+    }
+
+    private void updateCards (int player, String pName){
+        switch (player){
+            case 1:
+                //cardPlayer1.setPlayer();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
         }
     }
 }
