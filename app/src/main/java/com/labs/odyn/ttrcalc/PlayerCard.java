@@ -22,7 +22,7 @@ public class PlayerCard extends Card {
     }
 
     public PlayerCard(Context context) {
-        super(context, R.layout.row_card);
+        super(context, R.layout.player_card);
     }
 
     @Override

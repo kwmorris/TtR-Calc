@@ -6,7 +6,7 @@
     tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
 
     <it.gmariotti.cardslib.library.view.CardViewNative
-        android:id="@+id/cardPlayer1"
+        android:id="@+id/cardEdit1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -14,38 +14,38 @@
         />
 
     <it.gmariotti.cardslib.library.view.CardViewNative
-        android:id="@+id/cardPlayer2"
+        android:id="@+id/cardEdit2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:layout_below="@id/cardPlayer1"
+        android:layout_below="@id/cardEdit1"
         />
 
     <it.gmariotti.cardslib.library.view.CardViewNative
-        android:id="@+id/cardPlayer3"
+        android:id="@+id/cardEdit3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:layout_below="@id/cardPlayer2"
+        android:layout_below="@id/cardEdit2"
         />
 
     <it.gmariotti.cardslib.library.view.CardViewNative
-        android:id="@+id/cardPlayer4"
+        android:id="@+id/cardEdit4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:layout_below="@id/cardPlayer3"
+        android:layout_below="@id/cardEdit3"
         />
 
     <it.gmariotti.cardslib.library.view.CardViewNative
-        android:id="@+id/cardPlayer5"
+        android:id="@+id/cardEdit5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_below="@id/cardPlayer4"
+        android:layout_below="@id/cardEdit4"
         />
 
 </RelativeLayout>
