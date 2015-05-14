@@ -132,23 +132,23 @@ public class ScoreboardFragment extends Fragment {
         } else{
             switch (activePlayer){
                 case 1:
-                    cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
                     cardPlayer1.notifyDataSetChanged();
                     break;
                 case 2:
-                    cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
                     cardPlayer2.notifyDataSetChanged();
                     break;
                 case 3:
-                    cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
                     cardPlayer3.notifyDataSetChanged();
                     break;
                 case 4:
-                    cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
                     cardPlayer4.notifyDataSetChanged();
                     break;
                 case 5:
-                    cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
+                    cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
                     cardPlayer5.notifyDataSetChanged();
                     break;
             }
