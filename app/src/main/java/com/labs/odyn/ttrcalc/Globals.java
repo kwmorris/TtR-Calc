@@ -52,8 +52,7 @@ public class Globals {
     }
 
     //Set and Get playerColor
-    private int[] playerColors = //new int[5];
-            {0,0,0,0,0};
+    private int[] playerColors = new int[5];
 
     public void setPlayerColors(int[] pColors){
         playerColors = pColors;
@@ -95,7 +94,7 @@ public class Globals {
     }
 
     //Set and Get the activePlayer
-    private int activePlayer;
+    private int activePlayer = 0;
 
     public void setActivePlayer (int aPlayer){
         activePlayer = aPlayer;

@@ -9,8 +9,14 @@ import it.gmariotti.cardslib.library.internal.Card;
 
 public class PlayerCard extends Card {
 
-    protected TextView player;
-    protected TextView score;
+    protected String pName;
+    protected int pScore;
+
+    public PlayerCard(Context context, String playerName, int playerScore){
+        this(context);
+        pName = playerName;
+        pScore = playerScore;
+    }
 
     public PlayerCard(Context context) {
         super(context, R.layout.row_card);
@@ -19,16 +25,11 @@ public class PlayerCard extends Card {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view){
         //Retrieve elements
-        player = (TextView) view.findViewById(R.id.cardTitle);
-        score = (TextView) view.findViewById(R.id.cardScore);
-    }
+        TextView cardName = (TextView) view.findViewById(R.id.cardTitle);
+        TextView cardScore = (TextView) view.findViewById(R.id.cardScore);
 
-    public void setPlayer(String pName){
-        player.setText(pName);
-    }
-
-    public void setTitle(int pScore){
-        score.setText(String.valueOf(pScore));
+        cardName.setText(pName);
+        cardScore.setText(String.valueOf(pScore));
     }
 
 }

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
@@ -37,12 +38,11 @@ public class ScoreboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
-        //Create a card for player1
-        cardPlayer1 = createCard(R.layout.row_card);
-        cardPlayer2 = createCard(R.layout.row_card);
-        cardPlayer3 = createCard(R.layout.row_card);
-        cardPlayer4 = createCard(R.layout.row_card);
-        cardPlayer5 = createCard(R.layout.row_card);
+        cardPlayer1 = createCard(R.layout.row_card, 0);
+        cardPlayer2 = createCard(R.layout.row_card, 1);
+        cardPlayer3 = createCard(R.layout.row_card, 2);
+        cardPlayer4 = createCard(R.layout.row_card, 3);
+        cardPlayer5 = createCard(R.layout.row_card, 4);
 
         cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
             @Override
@@ -94,8 +94,8 @@ public class ScoreboardFragment extends Fragment {
         return view;
     }
 
-    private PlayerCard createCard(int layout) {
-        PlayerCard card = new PlayerCard(this.getActivity());
+    private PlayerCard createCard(int layout, int player) {
+        PlayerCard card = new PlayerCard(this.getActivity(), g.getPlayerNames(player), g.getPlayerScores(0));
 
         card.setBackgroundColorResourceId(g.getColorPrimary(0));
 
@@ -178,10 +178,31 @@ public class ScoreboardFragment extends Fragment {
         }
     }
 
-    private void updateCards (int player, String pName){
+    /*public void updateCards (int player, String pName){
+        g.setPlayerNames(pName, player);
         switch (player){
             case 1:
-                //cardPlayer1.setPlayer();
+                //cardPlayer1.
+                break;
+            case 2:
+                cardPlayer2.setTitle(pName);
+                break;
+            case 3:
+                cardPlayer3.setTitle(pName);
+                break;
+            case 4:
+                cardPlayer4.setTitle(pName);
+                break;
+            case 5:
+                cardPlayer5.setTitle(pName);
+                break;
+        }
+    }
+
+    private void updateCards (int player, int pScore){
+        switch (player){
+            case 1:
+                cardPlayer1.setTitle(g.getPlayerNames(0));
                 break;
             case 2:
                 break;
@@ -192,5 +213,5 @@ public class ScoreboardFragment extends Fragment {
             case 5:
                 break;
         }
-    }
+    }*/
 }
