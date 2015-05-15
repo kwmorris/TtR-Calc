@@ -1,11 +1,12 @@
 package com.labs.odyn.ttrcalc;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
@@ -20,6 +21,8 @@ public class EditFragment extends Fragment {
     private static EditCard cardEdit3;
     private static EditCard cardEdit4;
     private static EditCard cardEdit5;
+
+    private static int[] tempColors;
 
     public static EditFragment newInstance() {
         return new EditFragment();
@@ -38,39 +41,46 @@ public class EditFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
+        tempColors = g.getPlayerColors();
+
         cardEdit1 = createCard(0);
         cardEdit2 = createCard(1);
         cardEdit3 = createCard(2);
         cardEdit4 = createCard(3);
         cardEdit5 = createCard(4);
 
-        cardEdit1.setOnClickListener(new Card.OnCardClickListener() {
+        cardEdit1.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
+                changeColor(0);
             }
         });
 
-        cardEdit2.setOnClickListener(new Card.OnCardClickListener() {
+        cardEdit2.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
+                changeColor(1);
             }
         });
 
-        cardEdit3.setOnClickListener(new Card.OnCardClickListener() {
+        cardEdit3.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
+                changeColor(2);
             }
         });
 
-        cardEdit4.setOnClickListener(new Card.OnCardClickListener() {
+        cardEdit4.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
+                changeColor(3);
             }
         });
 
-        cardEdit5.setOnClickListener(new Card.OnCardClickListener() {
+        cardEdit5.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
+                changeColor(4);
             }
         });
 
@@ -97,4 +107,43 @@ public class EditFragment extends Fragment {
 
         return card;
     }
+
+    private void changeColor(int player){
+        int color = tempColors[player];
+        color++;
+
+        if (color > 5){
+            color = 0;
+        }
+
+        switch (player){
+            case 0:
+                cardEdit1.setBackgroundColorResourceId(g.getColorLight(color));
+                cardEdit1.notifyDataSetChanged();
+                break;
+            case 1:
+                cardEdit2.setBackgroundColorResourceId(g.getColorLight(color));
+                cardEdit2.notifyDataSetChanged();
+                break;
+            case 2:
+                cardEdit3.setBackgroundColorResourceId(g.getColorLight(color));
+                cardEdit3.notifyDataSetChanged();
+                break;
+            case 3:
+                cardEdit4.setBackgroundColorResourceId(g.getColorLight(color));
+                cardEdit4.notifyDataSetChanged();
+                break;
+            case 4:
+                cardEdit5.setBackgroundColorResourceId(g.getColorLight(color));
+                cardEdit5.notifyDataSetChanged();
+                break;
+        }
+
+        tempColors[player] = color;
+    }
+
+    public static void setColor(int player){
+        g.setPlayerColors(tempColors[player], player);
+    }
+
 }

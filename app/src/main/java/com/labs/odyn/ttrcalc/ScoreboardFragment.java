@@ -45,35 +45,35 @@ public class ScoreboardFragment extends Fragment {
         cardPlayer4 = createCard(3);
         cardPlayer5 = createCard(4);
 
-        cardPlayer1.setOnClickListener(new Card.OnCardClickListener() {
+        cardPlayer1.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
                 updateActiveCard(1);
             }
         });
 
-        cardPlayer2.setOnClickListener(new Card.OnCardClickListener() {
+        cardPlayer2.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
                 updateActiveCard(2);
             }
         });
 
-        cardPlayer3.setOnClickListener(new Card.OnCardClickListener() {
+        cardPlayer3.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
                 updateActiveCard(3);
             }
         });
 
-        cardPlayer4.setOnClickListener(new Card.OnCardClickListener() {
+        cardPlayer4.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
                 updateActiveCard(4);
             }
         });
 
-        cardPlayer5.setOnClickListener(new Card.OnCardClickListener() {
+        cardPlayer5.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
                 updateActiveCard(5);
@@ -104,7 +104,7 @@ public class ScoreboardFragment extends Fragment {
         return card;
     }
 
-    public void updateActiveCard (int clicked){
+    private void updateActiveCard (int clicked){
         int activePlayer = g.getActivePlayer();
 
         if (activePlayer == clicked){
@@ -195,32 +195,32 @@ public class ScoreboardFragment extends Fragment {
         }
     }
 
-    public void updateCardName(int player){
+    public static void updateCardName(int player){
         switch (player) {
-            case 1:
+            case 0:
                 cardPlayer1.setName(0);
                 cardPlayer1.notifyDataSetChanged();
                 break;
+            case 1:
+                cardPlayer2.setName(1);
+                cardPlayer2.notifyDataSetChanged();
+                break;
             case 2:
-                cardPlayer1.setName(1);
-                cardPlayer1.notifyDataSetChanged();
+                cardPlayer3.setName(2);
+                cardPlayer3.notifyDataSetChanged();
                 break;
             case 3:
-                cardPlayer1.setName(2);
-                cardPlayer1.notifyDataSetChanged();
+                cardPlayer4.setName(3);
+                cardPlayer4.notifyDataSetChanged();
                 break;
             case 4:
-                cardPlayer1.setName(3);
-                cardPlayer1.notifyDataSetChanged();
-                break;
-            case 5:
-                cardPlayer1.setName(4);
-                cardPlayer1.notifyDataSetChanged();
+                cardPlayer5.setName(4);
+                cardPlayer5.notifyDataSetChanged();
                 break;
         }
     }
 
-    public void updateCardScore(int player){
+    public static void updateCardScore(int player){
         switch (player) {
             case 1:
                 cardPlayer1.setScore(0);
@@ -242,6 +242,32 @@ public class ScoreboardFragment extends Fragment {
                 cardPlayer1.setName(4);
                 cardPlayer1.notifyDataSetChanged();
                 break;
+        }
+    }
+
+    public static void updateCardColor(int player){
+        g.setActivePlayer(0);
+        switch (player){
+            case 0:
+                cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+                cardPlayer1.notifyDataSetChanged();
+            break;
+            case 1:
+                cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+                cardPlayer2.notifyDataSetChanged();
+            break;
+            case 2:
+                cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+                cardPlayer3.notifyDataSetChanged();
+            break;
+            case 3:
+                cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+                cardPlayer4.notifyDataSetChanged();
+            break;
+            case 4:
+                cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+                cardPlayer5.notifyDataSetChanged();
+            break;
         }
     }
 }

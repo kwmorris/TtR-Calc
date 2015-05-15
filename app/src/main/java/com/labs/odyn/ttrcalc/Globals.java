@@ -114,4 +114,77 @@ public class Globals {
     public int getActivePlayer (){
         return activePlayer;
     }
+
+    //Set and Get edited players
+    /*private boolean changedName = false;
+
+    public void setChangedName(boolean bool){
+        changedName = bool;
+    }
+
+    public boolean getChangedName(){
+        return changedName;
+    }
+
+    private boolean[] changedNames = {false, false, false, false, false};
+
+    public void setChangedNames(boolean[] bool){
+        changedNames = bool;
+    }
+
+    public void setChangedNames(boolean bool, int player){
+        changedNames[player] = bool;
+    }
+
+    public boolean[] getChangedNames(){
+        return changedNames;
+    }
+
+    private boolean changedColor = false;
+
+    public void setChangedColor(boolean bool){
+        changedColor = bool;
+    }
+
+    public boolean getChangedColor(){
+        return changedColor;
+    }
+
+    private boolean[] changedColors = {false, false, false, false, false};
+
+    public void setChangedColors(boolean[] bool){
+        changedColors = bool;
+    }
+
+    public void setChangedColors(boolean bool, int player){
+        changedColors[player] = bool;
+    }
+
+    public boolean[] getChangedColors(){
+        return changedColors;
+    }
+
+    private boolean changedScore = false;
+
+    public void setChangedScore(boolean bool){
+        changedScore = bool;
+    }
+
+    public boolean getChangedScore(){
+        return changedScore;
+    }
+
+    private boolean[] changedScores = {false, false, false, false, false};
+
+    public void setChangedScores(boolean[] bool){
+        changedScores = bool;
+    }
+
+    public void setChangedScores(boolean bool, int player){
+        changedScores[player] = bool;
+    }
+
+    public boolean[] getChangedScores(){
+        return changedScores;
+    }*/
 }
