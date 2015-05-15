@@ -15,11 +15,11 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         //Default values
-        String[] dNames = {"P1","P2","P3","P4","P5"};
+        String[] dNames = {"Player 1","Player 2","Player 3","Player 4","Player 5"};
         int[] dScores = //{0,0,0,0,0};
                 {123,456,789,210,543};
-        int[] dColors = //{0,0,0,0,0};
-                {1,2,3,4,5};
+        int[] dColors = {0,0,0,0,0};
+                //{1,2,3,4,5};
 
         //Initialize Globals
         Globals g = new Globals().getInstance();

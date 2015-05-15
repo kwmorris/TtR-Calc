@@ -104,6 +104,7 @@ public class EditFragment extends Fragment {
         EditCard card = new EditCard(this.getActivity(), player);
 
         card.setBackgroundColorResourceId(g.getColorLight(g.getPlayerColors(player)));
+        card.setTextColor(getResources().getColor(R.color.textDark));
 
         return card;
     }

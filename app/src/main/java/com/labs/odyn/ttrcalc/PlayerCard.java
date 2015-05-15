@@ -20,7 +20,6 @@ public class PlayerCard extends Card {
         this(context);
         pName = g.getPlayerNames(player);
         pScore = g.getPlayerScores(player);
-        tColor = R.color.textDark;
     }
 
     public PlayerCard(Context context) {

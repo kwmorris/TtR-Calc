@@ -100,38 +100,39 @@ public class ScoreboardFragment extends Fragment {
         PlayerCard card = new PlayerCard(this.getActivity(), player);
 
         card.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+        card.setTextColor(getResources().getColor(R.color.textDark));
 
         return card;
     }
 
-    private void updateActiveCard (int clicked){
+    private static void updateActiveCard (int clicked){
         int activePlayer = g.getActivePlayer();
 
         if (activePlayer == clicked){
             switch (clicked){
                 case 1:
                     cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer1.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer1.setTextColor(R.color.textDark);
                     cardPlayer1.notifyDataSetChanged();
                     break;
                 case 2:
                     cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer2.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer2.setTextColor(R.color.textDark);
                     cardPlayer2.notifyDataSetChanged();
                     break;
                 case 3:
                     cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer3.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer3.setTextColor(R.color.textDark);
                     cardPlayer3.notifyDataSetChanged();
                     break;
                 case 4:
                     cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer4.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer4.setTextColor(R.color.textDark);
                     cardPlayer4.notifyDataSetChanged();
                     break;
                 case 5:
                     cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer5.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer5.setTextColor(R.color.textDark);
                     cardPlayer5.notifyDataSetChanged();
                     break;
             }
@@ -140,54 +141,54 @@ public class ScoreboardFragment extends Fragment {
             switch (activePlayer){
                 case 1:
                     cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer1.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer1.setTextColor(R.color.textDark);
                     cardPlayer1.notifyDataSetChanged();
                     break;
                 case 2:
                     cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer2.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer2.setTextColor(R.color.textDark);
                     cardPlayer2.notifyDataSetChanged();
                     break;
                 case 3:
                     cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer3.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer3.setTextColor(R.color.textDark);
                     cardPlayer3.notifyDataSetChanged();
                     break;
                 case 4:
                     cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer4.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer4.setTextColor(R.color.textDark);
                     cardPlayer4.notifyDataSetChanged();
                     break;
                 case 5:
                     cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer5.setTextColor(getResources().getColor(R.color.textDark));
+                    cardPlayer5.setTextColor(R.color.textDark);
                     cardPlayer5.notifyDataSetChanged();
                     break;
             }
             switch (clicked){
                 case 1:
                     cardPlayer1.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer1.setTextColor(getResources().getColor(R.color.textLight));
+                    cardPlayer1.setTextColor(R.color.textLight);
                     cardPlayer1.notifyDataSetChanged();
                     break;
                 case 2:
                     cardPlayer2.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer2.setTextColor(getResources().getColor(R.color.textLight));
+                    cardPlayer2.setTextColor(R.color.textLight);
                     cardPlayer2.notifyDataSetChanged();
                     break;
                 case 3:
                     cardPlayer3.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer3.setTextColor(getResources().getColor(R.color.textLight));
+                    cardPlayer3.setTextColor(R.color.textLight);
                     cardPlayer3.notifyDataSetChanged();
                     break;
                 case 4:
                     cardPlayer4.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer4.setTextColor(getResources().getColor(R.color.textLight));
+                    cardPlayer4.setTextColor(R.color.textLight);
                     cardPlayer4.notifyDataSetChanged();
                     break;
                 case 5:
                     cardPlayer5.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer5.setTextColor(getResources().getColor(R.color.textLight));
+                    cardPlayer5.setTextColor(R.color.textLight);
                     cardPlayer5.notifyDataSetChanged();
                     break;
             }
@@ -246,7 +247,8 @@ public class ScoreboardFragment extends Fragment {
     }
 
     public static void updateCardColor(int player){
-        g.setActivePlayer(0);
+        updateActiveCard(g.getActivePlayer());
+
         switch (player){
             case 0:
                 cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));

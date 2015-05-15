@@ -13,6 +13,7 @@ public class EditCard extends Card {
 
     protected String pName;
     protected int pNum;
+    protected int tColor;
 
     //Globals
     Globals g = new Globals().getInstance();
@@ -33,6 +34,7 @@ public class EditCard extends Card {
         final EditText editName = (EditText) view.findViewById(R.id.editTitle);
 
         editName.setHint(pName);
+        editName.setTextColor(tColor);
 
         Button applyButton = (Button) view.findViewById(R.id.editButton);
 
@@ -42,7 +44,6 @@ public class EditCard extends Card {
                 String tempName = editName.getText().toString();
 
                 EditFragment.setColor(pNum);
-                Toast.makeText(v.getContext(), "Setting Color: " + String.valueOf(pNum), Toast.LENGTH_SHORT).show();
                 ScoreboardFragment.updateCardColor(pNum);
 
                 if (!tempName.matches("")) {
@@ -58,5 +59,9 @@ public class EditCard extends Card {
 
     public void setName (int player){
         pName = g.getPlayerNames(player);
+    }
+
+    public void setTextColor (int color){
+        tColor = color;
     }
 }
