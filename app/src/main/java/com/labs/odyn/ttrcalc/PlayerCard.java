@@ -11,6 +11,7 @@ public class PlayerCard extends Card {
 
     protected String pName;
     protected int pScore;
+    protected int tColor;
 
     //Globals
     Globals g = new Globals().getInstance();
@@ -19,6 +20,7 @@ public class PlayerCard extends Card {
         this(context);
         pName = g.getPlayerNames(player);
         pScore = g.getPlayerScores(player);
+        tColor = R.color.textDark;
     }
 
     public PlayerCard(Context context) {
@@ -32,7 +34,9 @@ public class PlayerCard extends Card {
         TextView cardScore = (TextView) view.findViewById(R.id.cardScore);
 
         cardName.setText(pName);
+        cardName.setTextColor(tColor);
         cardScore.setText(String.valueOf(pScore));
+        cardScore.setTextColor(tColor);
     }
 
     public void setName (int player){
@@ -41,5 +45,9 @@ public class PlayerCard extends Card {
 
     public void setScore (int player){
         pScore = g.getPlayerScores(player);
+    }
+
+    public void setTextColor (int color){
+        tColor = color;
     }
 }
