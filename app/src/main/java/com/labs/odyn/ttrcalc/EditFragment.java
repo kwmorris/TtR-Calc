@@ -1,12 +1,10 @@
 package com.labs.odyn.ttrcalc;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
@@ -104,7 +102,7 @@ public class EditFragment extends Fragment {
         EditCard card = new EditCard(this.getActivity(), player);
 
         card.setBackgroundColorResourceId(g.getColorLight(g.getPlayerColors(player)));
-        card.setTextColor(R.color.textDark);
+        card.setTextColor(getResources().getColor(R.color.textDark));
 
         return card;
     }
