@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purplePrimary">#9C27B0</color>
-    <color name="blackPrimary">#808080</color>
+    <color name="colorPrimary">#F5F5F5</color>
+    <color name="colorDark">#9E9E9E</color>
+
+    <color name="blackLight">#757575</color>
+    <color name="redLight">#E57373</color>
+    <color name="yellowLight">#FFF176</color>
+    <color name="greenLight">#81C784</color>
+    <color name="blueLight">#64B5F6</color>
+
+    <color name="blackPrimary">#616161</color>
     <color name="redPrimary">#F44336</color>
     <color name="yellowPrimary">#FFEB3B</color>
     <color name="greenPrimary">#4CAF50</color>
     <color name="bluePrimary">#2196F3</color>
 
-    <color name="purpleDark">#7B1FA2</color>
-    <color name="blackDark">#505050</color>
+    <color name="blackDark">#424242</color>
     <color name="redDark">#D32F2F</color>
     <color name="yellowDark">#FBC02D</color>
     <color name="greenDark">#388E3C</color>
     <color name="blueDark">#1976D2</color>
 
-    <color name="colorPrimary">#F5F5F5</color>
-    <color name="colorDark">#9E9E9E</color>
+    <color name="textLight">#F5F5F5</color>
+    <color name="textDark">#212121</color>
+
 </resources>

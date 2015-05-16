@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="16dp"
     tools:context="com.labs.odyn.ttrcalc.ScoreboardFragment">
 
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         />
@@ -16,7 +16,7 @@
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:layout_below="@id/cardPlayer1"
@@ -25,7 +25,7 @@
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:layout_below="@id/cardPlayer2"
@@ -34,7 +34,7 @@
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:layout_below="@id/cardPlayer3"
@@ -43,7 +43,7 @@
     <it.gmariotti.cardslib.library.view.CardViewNative
         android:id="@+id/cardPlayer5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:layout_marginTop="8dp"
         android:layout_below="@id/cardPlayer4"
         />
