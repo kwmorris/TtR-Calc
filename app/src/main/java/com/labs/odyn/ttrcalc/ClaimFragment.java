@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 public class ClaimFragment extends Fragment {
 
+    private static Globals g = new Globals().getInstance();
+
+    private static ClaimCard claimCard;
+
     public static ClaimFragment newInstance() {
         return new ClaimFragment();
     }
@@ -24,12 +28,23 @@ public class ClaimFragment extends Fragment {
     }*/
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_claim, container, false);
-        TextView placeHolder = (TextView) view.findViewById(R.id.placeHolderC);
-        placeHolder.setText("Place Holder Claim");
+
+        claimCard = new ClaimCard(this.getActivity());
+
         return view;
 
+    }
+
+    public static void updateCard (){
+        int activePlayer = g.getActivePlayer();
+        if (activePlayer == 0){
+            claimCard.setBackgroundColorResourceId(g.getColorPrimary(0));
+        } else {
+            claimCard.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
+        }
+
+        claimCard.updateCard();
     }
 }

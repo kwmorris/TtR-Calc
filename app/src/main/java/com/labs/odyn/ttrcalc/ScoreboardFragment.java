@@ -197,6 +197,7 @@ public class ScoreboardFragment extends Fragment {
             }
             g.setActivePlayer(clicked);
         }
+        ClaimFragment.updateCard();
     }
 
     public static void updateCardName(int player){
