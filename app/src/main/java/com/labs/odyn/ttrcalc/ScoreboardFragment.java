@@ -12,15 +12,17 @@ import it.gmariotti.cardslib.library.view.CardViewNative;
 
 public class ScoreboardFragment extends Fragment {
 
-    private static Globals g = new Globals().getInstance();
+    private static Player player1 = MainActivity.player1;
+    private static Player player2 = MainActivity.player2;
+    private static Player player3 = MainActivity.player3;
+    private static Player player4 = MainActivity.player4;
+    private static Player player5 = MainActivity.player5;
 
     private static PlayerCard cardPlayer1;
     private static PlayerCard cardPlayer2;
     private static PlayerCard cardPlayer3;
     private static PlayerCard cardPlayer4;
     private static PlayerCard cardPlayer5;
-
-    //private static CardViewNative
 
     public static ScoreboardFragment newInstance() {
         return new ScoreboardFragment();
@@ -39,44 +41,85 @@ public class ScoreboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
-        cardPlayer1 = createCard(0);
-        cardPlayer2 = createCard(1);
-        cardPlayer3 = createCard(2);
-        cardPlayer4 = createCard(3);
-        cardPlayer5 = createCard(4);
+        cardPlayer1 = createCard(player1);
+        cardPlayer2 = createCard(player2);
+        cardPlayer3 = createCard(player3);
+        cardPlayer4 = createCard(player4);
+        cardPlayer5 = createCard(player5);
 
         cardPlayer1.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateActiveCard(1);
+                Player aPlayer = findActivePlayer();
+                if (aPlayer == player1) {
+                    deactivatePlayer(player1);
+                } else {
+                    switchActivePlayers(player1, aPlayer);
+                }
             }
         });
 
         cardPlayer2.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateActiveCard(2);
+                if (player2.getIsActive()) {
+                    player2.setIsActive(false);
+                } else {
+                    player2.setIsActive(true);
+                }
+
+                player1.setIsActive(false);
+                player3.setIsActive(false);
+                player4.setIsActive(false);
+                player5.setIsActive(false);
             }
         });
 
         cardPlayer3.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateActiveCard(3);
+                if (player3.getIsActive()) {
+                    player3.setIsActive(false);
+                } else {
+                    player3.setIsActive(true);
+                }
+
+                player1.setIsActive(false);
+                player2.setIsActive(false);
+                player4.setIsActive(false);
+                player5.setIsActive(false);
             }
         });
 
         cardPlayer4.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateActiveCard(4);
+                if (player4.getIsActive()) {
+                    player4.setIsActive(false);
+                } else {
+                    player4.setIsActive(true);
+                }
+
+                player1.setIsActive(false);
+                player2.setIsActive(false);
+                player3.setIsActive(false);
+                player5.setIsActive(false);
             }
         });
 
         cardPlayer5.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                updateActiveCard(5);
+                if (player5.getIsActive()) {
+                    player5.setIsActive(false);
+                } else {
+                    player5.setIsActive(true);
+                }
+
+                player1.setIsActive(false);
+                player2.setIsActive(false);
+                player3.setIsActive(false);
+                player4.setIsActive(false);
             }
         });
 
@@ -96,184 +139,95 @@ public class ScoreboardFragment extends Fragment {
         return view;
     }
 
-    private PlayerCard createCard(int player) {
+    private PlayerCard createCard(Player player) {
         PlayerCard card = new PlayerCard(this.getActivity(), player);
 
-        card.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
+        card.setBackgroundColorResourceId(Colors.getColorPrimary(0));
         card.setTextColor(getResources().getColor(R.color.textDark));
 
         return card;
     }
 
-    private void updateActiveCard (int clicked){
-        int activePlayer = g.getActivePlayer();
+    public static void updateCard(Player p){
+        int pId = p.getId();
+        int pColorId = p.getColor();
+        int pColor;
+        int tColor;
+        boolean pActive = p.getIsActive();
 
-        int textDark = getResources().getColor(R.color.textDark);
-        int textLight = getResources().getColor(R.color.textLight);
-
-        if (activePlayer == clicked){
-            switch (clicked){
-                case 1:
-                    cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer1.setTextColor(textDark);
-                    cardPlayer1.notifyDataSetChanged();
-                    break;
-                case 2:
-                    cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer2.setTextColor(textDark);
-                    cardPlayer2.notifyDataSetChanged();
-                    break;
-                case 3:
-                    cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer3.setTextColor(textDark);
-                    cardPlayer3.notifyDataSetChanged();
-                    break;
-                case 4:
-                    cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer4.setTextColor(textDark);
-                    cardPlayer4.notifyDataSetChanged();
-                    break;
-                case 5:
-                    cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(clicked - 1)));
-                    cardPlayer5.setTextColor(textDark);
-                    cardPlayer5.notifyDataSetChanged();
-                    break;
-            }
-            g.setActivePlayer(0);
-        } else{
-            switch (activePlayer){
-                case 1:
-                    cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer1.setTextColor(textDark);
-                    cardPlayer1.notifyDataSetChanged();
-                    break;
-                case 2:
-                    cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer2.setTextColor(textDark);
-                    cardPlayer2.notifyDataSetChanged();
-                    break;
-                case 3:
-                    cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer3.setTextColor(textDark);
-                    cardPlayer3.notifyDataSetChanged();
-                    break;
-                case 4:
-                    cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer4.setTextColor(textDark);
-                    cardPlayer4.notifyDataSetChanged();
-                    break;
-                case 5:
-                    cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(activePlayer - 1)));
-                    cardPlayer5.setTextColor(textDark);
-                    cardPlayer5.notifyDataSetChanged();
-                    break;
-            }
-            switch (clicked){
-                case 1:
-                    cardPlayer1.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer1.setTextColor(textLight);
-                    cardPlayer1.notifyDataSetChanged();
-                    break;
-                case 2:
-                    cardPlayer2.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer2.setTextColor(textLight);
-                    cardPlayer2.notifyDataSetChanged();
-                    break;
-                case 3:
-                    cardPlayer3.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer3.setTextColor(textLight);
-                    cardPlayer3.notifyDataSetChanged();
-                    break;
-                case 4:
-                    cardPlayer4.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer4.setTextColor(textLight);
-                    cardPlayer4.notifyDataSetChanged();
-                    break;
-                case 5:
-                    cardPlayer5.setBackgroundColorResourceId(g.getColorDark(g.getPlayerColors(clicked - 1)));
-                    cardPlayer5.setTextColor(textLight);
-                    cardPlayer5.notifyDataSetChanged();
-                    break;
-            }
-            g.setActivePlayer(clicked);
+        if (pActive){
+            pColor = Colors.getColorDark(pColorId);
+            tColor = Colors.getTextLight();
+        } else {
+            pColor = Colors.getColorPrimary(pColorId);
+            tColor = Colors.getTextDark();
         }
-        ClaimFragment.updateCard();
-    }
 
-    public static void updateCardName(int player){
-        switch (player) {
-            case 0:
-                cardPlayer1.setName(0);
-                cardPlayer1.notifyDataSetChanged();
-                break;
+        switch (pId) {
             case 1:
-                cardPlayer2.setName(1);
-                cardPlayer2.notifyDataSetChanged();
+                cardPlayer1.updateCard();
+                cardPlayer1.setBackgroundColorResourceId(pColor);
+                cardPlayer1.setTextColor(tColor);
                 break;
             case 2:
-                cardPlayer3.setName(2);
-                cardPlayer3.notifyDataSetChanged();
+                cardPlayer2.updateCard();
+                cardPlayer2.setBackgroundColorResourceId(pColor);
+                cardPlayer2.setTextColor(tColor);
                 break;
             case 3:
-                cardPlayer4.setName(3);
-                cardPlayer4.notifyDataSetChanged();
+                cardPlayer3.updateCard();
+                cardPlayer3.setBackgroundColorResourceId(pColor);
+                cardPlayer3.setTextColor(tColor);
                 break;
             case 4:
-                cardPlayer5.setName(4);
-                cardPlayer5.notifyDataSetChanged();
-                break;
-        }
-    }
-
-    public static void updateCardScore(int player){
-        switch (player) {
-            case 1:
-                cardPlayer1.setScore(0);
-                cardPlayer1.notifyDataSetChanged();
-                break;
-            case 2:
-                cardPlayer1.setName(1);
-                cardPlayer1.notifyDataSetChanged();
-                break;
-            case 3:
-                cardPlayer1.setName(2);
-                cardPlayer1.notifyDataSetChanged();
-                break;
-            case 4:
-                cardPlayer1.setName(3);
-                cardPlayer1.notifyDataSetChanged();
+                cardPlayer4.updateCard();
+                cardPlayer4.setBackgroundColorResourceId(pColor);
+                cardPlayer4.setTextColor(tColor);
                 break;
             case 5:
-                cardPlayer1.setName(4);
-                cardPlayer1.notifyDataSetChanged();
+                cardPlayer5.updateCard();
+                cardPlayer5.setBackgroundColorResourceId(pColor);
+                cardPlayer5.setTextColor(tColor);
                 break;
         }
     }
 
-    public static void updateCardColor(int player){
-        g.setActivePlayer(0);
+    private void switchActivePlayers (Player newAPlayer, Player oldAPlayer){
+        if (oldAPlayer != null){
+            deactivatePlayer(oldAPlayer);
+        }
 
-        switch (player){
-            case 0:
-                cardPlayer1.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
-                cardPlayer1.notifyDataSetChanged();
-            break;
-            case 1:
-                cardPlayer2.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
-                cardPlayer2.notifyDataSetChanged();
-            break;
-            case 2:
-                cardPlayer3.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
-                cardPlayer3.notifyDataSetChanged();
-            break;
-            case 3:
-                cardPlayer4.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
-                cardPlayer4.notifyDataSetChanged();
-            break;
-            case 4:
-                cardPlayer5.setBackgroundColorResourceId(g.getColorPrimary(g.getPlayerColors(player)));
-                cardPlayer5.notifyDataSetChanged();
-            break;
+        activatePlayer(newAPlayer);
+    }
+
+    private void deactivatePlayer (Player p){
+        p.setIsActive(false);
+        updateCard(p);
+    }
+
+    private void activatePlayer (Player p){
+        p.setIsActive(true);
+        updateCard(p);
+    }
+
+    public Player findActivePlayer(){
+        if (player1.getIsActive()) {
+            return player1;
+        }
+        else if (player2.getIsActive()) {
+            return player2;
+        }
+        else if (player3.getIsActive()) {
+            return player3;
+        }
+        else if (player4.getIsActive()) {
+            return player4;
+        }
+        else if (player5.getIsActive()) {
+            return player5;
+        }
+        else {
+            return null;
         }
     }
 }

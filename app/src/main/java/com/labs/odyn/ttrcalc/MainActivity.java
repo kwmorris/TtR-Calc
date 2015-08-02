@@ -9,23 +9,51 @@ import com.astuetz.PagerSlidingTabStrip;
 
 public class MainActivity extends FragmentActivity {
 
+    public static Player player1 = new Player();
+    public static Player player2 = new Player();
+    public static Player player3 = new Player();
+    public static Player player4 = new Player();
+    public static Player player5 = new Player();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Default values
-        String[] dNames = {"Player 1","Player 2","Player 3","Player 4","Player 5"};
-        int[] dScores = //{0,0,0,0,0};
-                {123,456,789,210,543};
-        int[] dColors = {0,0,0,0,0};
-                //{1,2,3,4,5};
-
-        //Initialize Globals
-        Globals g = new Globals().getInstance();
-        g.setPlayerNames(dNames);
-        g.setPlayerScores(dScores);
-        g.setPlayerColors(dColors);
+        for (int i = 1; i < 6; i++){
+            switch (i){
+                case 1:
+                    player1.setId(1);
+                    player1.setName("Player1");
+                    player1.setScore(123);
+                    player1.setColor(Colors.getColorPrimary(0));
+                    break;
+                case 2:
+                    player2.setId(2);
+                    player2.setName("Player2");
+                    player2.setScore(456);
+                    player2.setColor(Colors.getColorPrimary(0));
+                    break;
+                case 3:
+                    player3.setId(3);
+                    player3.setName("Player3");
+                    player3.setScore(789);
+                    player3.setColor(Colors.getColorPrimary(0));
+                    break;
+                case 4:
+                    player4.setId(4);
+                    player4.setName("Player4");
+                    player4.setScore(210);
+                    player4.setColor(Colors.getColorPrimary(0));
+                    break;
+                case 5:
+                    player5.setId(5);
+                    player5.setName("Player5");
+                    player5.setScore(543);
+                    player5.setColor(Colors.getColorPrimary(0));
+                    break;
+            }
+        }
 
         //Initialize the ViewPager and set its adapter
         ViewPager tabPager = (ViewPager) findViewById(R.id.tabPager);
