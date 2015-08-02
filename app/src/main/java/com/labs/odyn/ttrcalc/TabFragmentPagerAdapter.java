@@ -21,8 +21,8 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int pos){
         if (pos == 0){
             return EditFragment.newInstance();
-        } else if (pos == 2){
-            return ClaimFragment.newInstance();
+        //} else if (pos == 2){
+            //return ClaimFragment.newInstance();
         } else {
             return ScoreboardFragment.newInstance();
         }
