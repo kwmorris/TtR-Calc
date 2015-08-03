@@ -12,10 +12,6 @@ public class Colors {
     private static int[] colorLight = {R.color.colorPrimary, R.color.blackLight, R.color.redLight,
             R.color.yellowLight, R.color.greenLight, R.color.blueLight};
 
-    private static int textDark = R.color.textDark;
-
-    private static int textLight = R.color.textLight;
-
     public static int getColorLight(int pos){
         return colorLight[pos];
     }
@@ -29,10 +25,10 @@ public class Colors {
     }
 
     public static int getTextDark() {
-        return textDark;
+        return R.color.textDark;
     }
 
     public static int getTextLight() {
-        return textLight;
+        return R.color.textLight;
     }
 }

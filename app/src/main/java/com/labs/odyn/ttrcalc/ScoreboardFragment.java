@@ -127,7 +127,7 @@ public class ScoreboardFragment extends Fragment {
         PlayerCard card = new PlayerCard(this.getActivity(), player);
 
         card.setBackgroundColorResourceId(Colors.getColorPrimary(player.getColor()));
-        card.setTextColor(getResources().getColor(R.color.textDark));
+        card.setTextColor(Colors.getTextDark());
 
         return card;
     }
@@ -136,47 +136,42 @@ public class ScoreboardFragment extends Fragment {
         int pId = p.getId();
         int pColorId = p.getColor();
         int pColor;
-        int tColor;
         boolean pActive = p.getIsActive();
 
         if (pActive){
             pColor = Colors.getColorDark(pColorId);
-            tColor = Colors.getTextLight();
         } else {
             pColor = Colors.getColorPrimary(pColorId);
-            tColor = Colors.getTextDark();
         }
 
         switch (pId) {
             case 1:
-                cardPlayer1.updateCardData();
                 cardPlayer1.setBackgroundColorResourceId(pColor);
-                cardPlayer1.setTextColor(tColor);
+                cardPlayer1.updateCardData();
                 cardPlayer1.notifyDataSetChanged();
                 break;
+
             case 2:
-                cardPlayer2.updateCardData();
                 cardPlayer2.setBackgroundColorResourceId(pColor);
-                cardPlayer2.setTextColor(tColor);
+                cardPlayer2.updateCardData();
                 cardPlayer2.notifyDataSetChanged();
                 break;
+
             case 3:
-                cardPlayer3.updateCardData();
                 cardPlayer3.setBackgroundColorResourceId(pColor);
-                cardPlayer3.setTextColor(tColor);
+                cardPlayer3.updateCardData();
                 cardPlayer3.notifyDataSetChanged();
                 break;
+
             case 4:
-                cardPlayer4.updateCardData();
                 cardPlayer4.setBackgroundColorResourceId(pColor);
-                cardPlayer4.setTextColor(tColor);
+                cardPlayer4.updateCardData();
                 cardPlayer4.notifyDataSetChanged();
                 break;
+
             case 5:
-                cardPlayer5.updateCardData();
                 cardPlayer5.setBackgroundColorResourceId(pColor);
-                cardPlayer5.setTextColor(tColor);
-                cardPlayer5.notifyDataSetChanged();
+                cardPlayer5.updateCardData();
                 cardPlayer5.notifyDataSetChanged();
                 break;
         }

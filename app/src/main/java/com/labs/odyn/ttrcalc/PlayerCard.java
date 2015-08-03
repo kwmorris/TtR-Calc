@@ -34,6 +34,12 @@ public class PlayerCard extends Card {
     }
 
     public void updateCardData(){
+        /*if (player.getIsActive()){
+            tColor = R.color.textLight;
+        } else {
+            tColor = R.color.textDark;
+        }*/
+
         cardName.setText(player.getName());
         cardName.setTextColor(tColor);
         cardScore.setText(String.valueOf(player.getScore()));
