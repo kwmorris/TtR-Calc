@@ -24,6 +24,17 @@ public class Player {
         return name;
     }
 
+    //Player Trains Remaining
+    private int trains;
+
+    public void setTrains(int pTrains) {
+        trains = pTrains;
+    }
+
+    public int getTrains() {
+        return trains;
+    }
+
     //Player Score
     private int score;
 
