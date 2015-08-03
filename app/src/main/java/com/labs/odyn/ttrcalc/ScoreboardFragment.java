@@ -152,27 +152,31 @@ public class ScoreboardFragment extends Fragment {
                 cardPlayer1.updateCardData();
                 cardPlayer1.setBackgroundColorResourceId(pColor);
                 cardPlayer1.setTextColor(tColor);
-                //cardPlayer1.notifyDataSetChanged();
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 2:
                 cardPlayer2.updateCardData();
                 cardPlayer2.setBackgroundColorResourceId(pColor);
                 cardPlayer2.setTextColor(tColor);
+                cardPlayer2.notifyDataSetChanged();
                 break;
             case 3:
                 cardPlayer3.updateCardData();
                 cardPlayer3.setBackgroundColorResourceId(pColor);
                 cardPlayer3.setTextColor(tColor);
+                cardPlayer3.notifyDataSetChanged();
                 break;
             case 4:
                 cardPlayer4.updateCardData();
                 cardPlayer4.setBackgroundColorResourceId(pColor);
                 cardPlayer4.setTextColor(tColor);
+                cardPlayer4.notifyDataSetChanged();
                 break;
             case 5:
                 cardPlayer5.updateCardData();
                 cardPlayer5.setBackgroundColorResourceId(pColor);
                 cardPlayer5.setTextColor(tColor);
+                cardPlayer5.notifyDataSetChanged();
                 cardPlayer5.notifyDataSetChanged();
                 break;
         }

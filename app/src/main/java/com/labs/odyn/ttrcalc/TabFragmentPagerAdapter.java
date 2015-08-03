@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
+    final int PAGE_COUNT = /*3*/ 2;
     private String[] tabTitles = {"Edit", "Scoreboard", "Claim"};
 
     public TabFragmentPagerAdapter(FragmentManager fm){

@@ -20,40 +20,35 @@ public class MainActivity extends FragmentActivity {
 
         setContentView(R.layout.activity_main);
 
-        for (int i = 1; i < 6; i++){
-            switch (i){
-                case 1:
-                    player1.setId(1);
-                    player1.setName("Player1");
-                    player1.setScore(1);
-                    player1.setColor(1);
-                    break;
-                case 2:
-                    player2.setId(2);
-                    player2.setName("Player2");
-                    player2.setScore(2);
-                    player2.setColor(2);
-                    break;
-                case 3:
-                    player3.setId(3);
-                    player3.setName("Player3");
-                    player3.setScore(3);
-                    player3.setColor(3);
-                    break;
-                case 4:
-                    player4.setId(4);
-                    player4.setName("Player4");
-                    player4.setScore(4);
-                    player4.setColor(4);
-                    break;
-                case 5:
-                    player5.setId(5);
-                    player5.setName("Player5");
-                    player5.setScore(5);
-                    player5.setColor(5);
-                    break;
-            }
-        }
+        //Initialize Player1's attibutes
+        player1.setId(1);
+        player1.setName("Player1");
+        player1.setScore(1);
+        player1.setColor(1);
+
+        //Initialize Player's attibutes
+        player2.setId(2);
+        player2.setName("Player2");
+        player2.setScore(2);
+        player2.setColor(2);
+
+        //Initialize Player's attibutes
+        player3.setId(3);
+        player3.setName("Player3");
+        player3.setScore(3);
+        player3.setColor(3);
+
+        //Initialize Player's attibutes
+        player4.setId(4);
+        player4.setName("Player4");
+        player4.setScore(4);
+        player4.setColor(4);
+
+        //Initialize Player's attibutes
+        player5.setId(5);
+        player5.setName("Player5");
+        player5.setScore(5);
+        player5.setColor(5);
 
         //Initialize the ViewPager and set its adapter
         ViewPager tabPager = (ViewPager) findViewById(R.id.tabPager);
