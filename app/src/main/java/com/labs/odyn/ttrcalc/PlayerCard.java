@@ -30,10 +30,10 @@ public class PlayerCard extends Card {
         cardName = (TextView) view.findViewById(R.id.cardTitle);
         cardScore = (TextView) view.findViewById(R.id.cardScore);
 
-        updateCard();
+        updateCardData();
     }
 
-    public void updateCard(){
+    public void updateCardData(){
         cardName.setText(player.getName());
         cardName.setTextColor(tColor);
         cardScore.setText(String.valueOf(player.getScore()));

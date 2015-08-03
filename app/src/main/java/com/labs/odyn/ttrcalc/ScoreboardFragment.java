@@ -62,64 +62,48 @@ public class ScoreboardFragment extends Fragment {
         cardPlayer2.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                if (player2.getIsActive()) {
-                    player2.setIsActive(false);
+                Player aPlayer = findActivePlayer();
+                if (aPlayer == player2) {
+                    deactivatePlayer(player2);
                 } else {
-                    player2.setIsActive(true);
+                    switchActivePlayers(player2, aPlayer);
                 }
-
-                player1.setIsActive(false);
-                player3.setIsActive(false);
-                player4.setIsActive(false);
-                player5.setIsActive(false);
             }
         });
 
         cardPlayer3.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                if (player3.getIsActive()) {
-                    player3.setIsActive(false);
+                Player aPlayer = findActivePlayer();
+                if (aPlayer == player3) {
+                    deactivatePlayer(player3);
                 } else {
-                    player3.setIsActive(true);
+                    switchActivePlayers(player3, aPlayer);
                 }
-
-                player1.setIsActive(false);
-                player2.setIsActive(false);
-                player4.setIsActive(false);
-                player5.setIsActive(false);
             }
         });
 
         cardPlayer4.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                if (player4.getIsActive()) {
-                    player4.setIsActive(false);
+                Player aPlayer = findActivePlayer();
+                if (aPlayer == player4) {
+                    deactivatePlayer(player4);
                 } else {
-                    player4.setIsActive(true);
+                    switchActivePlayers(player4, aPlayer);
                 }
-
-                player1.setIsActive(false);
-                player2.setIsActive(false);
-                player3.setIsActive(false);
-                player5.setIsActive(false);
             }
         });
 
         cardPlayer5.setOnClickListener(new PlayerCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                if (player5.getIsActive()) {
-                    player5.setIsActive(false);
+                Player aPlayer = findActivePlayer();
+                if (aPlayer == player5) {
+                    deactivatePlayer(player5);
                 } else {
-                    player5.setIsActive(true);
+                    switchActivePlayers(player5, aPlayer);
                 }
-
-                player1.setIsActive(false);
-                player2.setIsActive(false);
-                player3.setIsActive(false);
-                player4.setIsActive(false);
             }
         });
 
@@ -165,29 +149,31 @@ public class ScoreboardFragment extends Fragment {
 
         switch (pId) {
             case 1:
-                cardPlayer1.updateCard();
+                cardPlayer1.updateCardData();
                 cardPlayer1.setBackgroundColorResourceId(pColor);
                 cardPlayer1.setTextColor(tColor);
+                cardPlayer1.notifyDataSetChanged();
                 break;
             case 2:
-                cardPlayer2.updateCard();
+                cardPlayer2.updateCardData();
                 cardPlayer2.setBackgroundColorResourceId(pColor);
                 cardPlayer2.setTextColor(tColor);
                 break;
             case 3:
-                cardPlayer3.updateCard();
+                cardPlayer3.updateCardData();
                 cardPlayer3.setBackgroundColorResourceId(pColor);
                 cardPlayer3.setTextColor(tColor);
                 break;
             case 4:
-                cardPlayer4.updateCard();
+                cardPlayer4.updateCardData();
                 cardPlayer4.setBackgroundColorResourceId(pColor);
                 cardPlayer4.setTextColor(tColor);
                 break;
             case 5:
-                cardPlayer5.updateCard();
+                cardPlayer5.updateCardData();
                 cardPlayer5.setBackgroundColorResourceId(pColor);
                 cardPlayer5.setTextColor(tColor);
+                cardPlayer5.notifyDataSetChanged();
                 break;
         }
     }

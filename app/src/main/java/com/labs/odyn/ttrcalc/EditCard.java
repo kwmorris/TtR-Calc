@@ -29,6 +29,8 @@ public class EditCard extends Card {
         //Retrieve elements
         final EditText editName = (EditText) view.findViewById(R.id.editTitle);
 
+        pName = player.getName();
+
         editName.setHint(pName);
         editName.setTextColor(tColor);
 

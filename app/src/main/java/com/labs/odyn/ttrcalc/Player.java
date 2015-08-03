@@ -2,6 +2,8 @@ package com.labs.odyn.ttrcalc;
 
 public class Player {
 
+    private void Player(){}
+
     //Player Id Number
     private static int id;
 
