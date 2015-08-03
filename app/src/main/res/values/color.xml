@@ -23,5 +23,6 @@
 
     <color name="textLight">#F5F5F5</color>
     <color name="textDark">#212121</color>
+    <color name="textWhite">#FFFFFF</color>
 
 </resources>

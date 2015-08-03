@@ -11,4 +11,16 @@
 
     <string name="hint_text">Player Name</string>
     <string name="apply">Apply</string>
+
+    <string name="claim">Claim</string>
+    <string name="route_length">Route Length</string>
+
+    <string name="route_one">1</string>
+    <string name="route_two">2</string>
+    <string name="route_three">3</string>
+    <string name="route_four">4</string>
+    <string name="route_five">5</string>
+    <string name="route_six">6</string>
+
+    <string name="none">None Selected</string>
 </resources>

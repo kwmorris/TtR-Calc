@@ -9,17 +9,15 @@ import it.gmariotti.cardslib.library.internal.Card;
 
 public class PlayerCard extends Card {
 
-    protected String pName;
-    protected int pScore;
-    protected int tColor;
+    protected Player player;
+    protected static int tColor;
 
-    //Globals
-    Globals g = new Globals().getInstance();
+    protected TextView cardName;
+    protected TextView cardScore;
 
-    public PlayerCard(Context context, int player){
+    public PlayerCard(Context context, Player p){
         this(context);
-        pName = g.getPlayerNames(player);
-        pScore = g.getPlayerScores(player);
+        player = p;
     }
 
     public PlayerCard(Context context) {
@@ -29,24 +27,26 @@ public class PlayerCard extends Card {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view){
         //Retrieve elements
-        TextView cardName = (TextView) view.findViewById(R.id.cardTitle);
-        TextView cardScore = (TextView) view.findViewById(R.id.cardScore);
+        cardName = (TextView) view.findViewById(R.id.cardTitle);
+        cardScore = (TextView) view.findViewById(R.id.cardScore);
 
-        cardName.setText(pName);
+        updateCardData();
+    }
+
+    public void updateCardData(){
+        /*if (player.getIsActive()){
+            tColor = R.color.textLight;
+        } else {
+            tColor = R.color.textDark;
+        }*/
+
+        cardName.setText(player.getName());
         cardName.setTextColor(tColor);
-        cardScore.setText(String.valueOf(pScore));
+        cardScore.setText(String.valueOf(player.getScore()));
         cardScore.setTextColor(tColor);
     }
 
-    public void setName (int player){
-        pName = g.getPlayerNames(player);
-    }
-
-    public void setScore (int player){
-        pScore = g.getPlayerScores(player);
-    }
-
-    public void setTextColor (int color){
+    public void setTextColor(int color){
         tColor = color;
     }
 }

@@ -11,16 +11,14 @@ import it.gmariotti.cardslib.library.internal.Card;
 public class EditCard extends Card {
 
     protected String pName;
-    protected int pNum;
+    protected Player player;
     protected int tColor;
+    protected EditText editName;
 
-    //Globals
-    Globals g = new Globals().getInstance();
 
-    public EditCard(Context context, int player){
+    public EditCard(Context context, Player p){
         this(context);
-        pNum = player;
-        pName = g.getPlayerNames(pNum);
+        player = p;
     }
 
     public EditCard(Context context) {
@@ -30,7 +28,9 @@ public class EditCard extends Card {
     @Override
     public void setupInnerViewElements(final ViewGroup parent, View view){
         //Retrieve elements
-        final EditText editName = (EditText) view.findViewById(R.id.editTitle);
+        editName = (EditText) view.findViewById(R.id.editTitle);
+
+        pName = player.getName();
 
         editName.setHint(pName);
         editName.setTextColor(tColor);
@@ -42,22 +42,16 @@ public class EditCard extends Card {
             public void onClick(View v) {
                 String tempName = editName.getText().toString();
 
-                EditFragment.setColor(pNum);
-                ScoreboardFragment.updateCardColor(pNum);
-
                 if (!tempName.matches("")) {
                     pName = tempName;
                     editName.setText("");
                     editName.setHint(pName);
-                    g.setPlayerNames(pName, pNum);
-                    ScoreboardFragment.updateCardName(pNum);
+                    player.setName(pName);
                 }
+
+                ScoreboardFragment.updateCard(player);
             }
         });
-    }
-
-    public void setName (int player){
-        pName = g.getPlayerNames(player);
     }
 
     public void setTextColor (int color){

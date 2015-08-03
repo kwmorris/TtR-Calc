@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
-
 public class EditFragment extends Fragment {
-
-    private static Globals g = new Globals().getInstance();
 
     private static EditCard cardEdit1;
     private static EditCard cardEdit2;
@@ -20,7 +17,12 @@ public class EditFragment extends Fragment {
     private static EditCard cardEdit4;
     private static EditCard cardEdit5;
 
-    private static int[] tempColors;
+    private static Player player1 = MainActivity.player1;
+    private static Player player2 = MainActivity.player2;
+    private static Player player3 = MainActivity.player3;
+    private static Player player4 = MainActivity.player4;
+    private static Player player5 = MainActivity.player5;
+
 
     public static EditFragment newInstance() {
         return new EditFragment();
@@ -39,49 +41,46 @@ public class EditFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
-        tempColors = g.getPlayerColors();
-
-        cardEdit1 = createCard(0);
-        cardEdit2 = createCard(1);
-        cardEdit3 = createCard(2);
-        cardEdit4 = createCard(3);
-        cardEdit5 = createCard(4);
+        cardEdit1 = createCard(player1);
+        cardEdit2 = createCard(player2);
+        cardEdit3 = createCard(player3);
+        cardEdit4 = createCard(player4);
+        cardEdit5 = createCard(player5);
 
         cardEdit1.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(0);
+                changeColor(player1);
             }
         });
 
         cardEdit2.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(1);
+                changeColor(player2);
             }
         });
 
         cardEdit3.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(2);
+                changeColor(player3);
             }
         });
 
         cardEdit4.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(3);
+                changeColor(player4);
             }
         });
 
         cardEdit5.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(4);
+                changeColor(player5);
             }
         });
-
 
         CardViewNative edit1View = (CardViewNative) view.findViewById(R.id.cardEdit1);
         CardViewNative edit2View = (CardViewNative) view.findViewById(R.id.cardEdit2);
@@ -98,51 +97,50 @@ public class EditFragment extends Fragment {
         return view;
     }
 
-    private EditCard createCard(int player){
+    private EditCard createCard(Player player){
         EditCard card = new EditCard(this.getActivity(), player);
 
-        card.setBackgroundColorResourceId(g.getColorLight(g.getPlayerColors(player)));
+        card.setBackgroundColorResourceId(Colors.getColorLight(player.getColor()));
         card.setTextColor(getResources().getColor(R.color.textDark));
 
         return card;
     }
 
-    private void changeColor(int player){
-        int color = tempColors[player];
+    private void changeColor(Player p){
+        int pId = p.getId();
+        int color = p.getColor();
         color++;
 
         if (color > 5){
             color = 0;
         }
 
-        switch (player){
-            case 0:
-                cardEdit1.setBackgroundColorResourceId(g.getColorLight(color));
+        p.setColor(color);
+
+        switch (pId){
+            case 1:
+                cardEdit1.setBackgroundColorResourceId(Colors.getColorLight(color));
                 cardEdit1.notifyDataSetChanged();
                 break;
-            case 1:
-                cardEdit2.setBackgroundColorResourceId(g.getColorLight(color));
+            case 2:
+                cardEdit2.setBackgroundColorResourceId(Colors.getColorLight(color));
                 cardEdit2.notifyDataSetChanged();
                 break;
-            case 2:
-                cardEdit3.setBackgroundColorResourceId(g.getColorLight(color));
+            case 3:
+                cardEdit3.setBackgroundColorResourceId(Colors.getColorLight(color));
                 cardEdit3.notifyDataSetChanged();
                 break;
-            case 3:
-                cardEdit4.setBackgroundColorResourceId(g.getColorLight(color));
+            case 4:
+                cardEdit4.setBackgroundColorResourceId(Colors.getColorLight(color));
                 cardEdit4.notifyDataSetChanged();
                 break;
-            case 4:
-                cardEdit5.setBackgroundColorResourceId(g.getColorLight(color));
+            case 5:
+                cardEdit5.setBackgroundColorResourceId(Colors.getColorLight(color));
                 cardEdit5.notifyDataSetChanged();
                 break;
         }
 
-        tempColors[player] = color;
-    }
-
-    public static void setColor(int player){
-        g.setPlayerColors(tempColors[player], player);
+        p.setColor(color);
     }
 
 }
