@@ -24,7 +24,6 @@ public class EditFragment extends Fragment {
     private static Player player4 = MainActivity.player4;
     private static Player player5 = MainActivity.player5;
 
-    private static int[] tempColors;
 
     public static EditFragment newInstance() {
         return new EditFragment();
