@@ -126,7 +126,7 @@ public class ScoreboardFragment extends Fragment {
     private PlayerCard createCard(Player player) {
         PlayerCard card = new PlayerCard(this.getActivity(), player);
 
-        card.setBackgroundColorResourceId(Colors.getColorPrimary(0));
+        card.setBackgroundColorResourceId(Colors.getColorPrimary(player.getColor()));
         card.setTextColor(getResources().getColor(R.color.textDark));
 
         return card;
@@ -152,7 +152,7 @@ public class ScoreboardFragment extends Fragment {
                 cardPlayer1.updateCardData();
                 cardPlayer1.setBackgroundColorResourceId(pColor);
                 cardPlayer1.setTextColor(tColor);
-                cardPlayer1.notifyDataSetChanged();
+                //cardPlayer1.notifyDataSetChanged();
                 break;
             case 2:
                 cardPlayer2.updateCardData();

@@ -1,17 +1,6 @@
 package com.labs.odyn.ttrcalc;
 
 public class Colors {
-    private static Colors instance;
-
-    private void Globals (){}
-
-    public Colors getInstance(){
-        if (instance == null){
-            //Create the instance
-            instance = new Colors();
-        }
-        return instance;
-    }
 
     //Color options
     private static int[] colorPrimary = {R.color.colorPrimary, R.color.blackPrimary, R.color.redPrimary,

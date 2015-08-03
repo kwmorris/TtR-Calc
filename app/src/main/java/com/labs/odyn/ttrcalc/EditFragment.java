@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
-
 public class EditFragment extends Fragment {
 
     private static EditCard cardEdit1;
@@ -51,38 +50,37 @@ public class EditFragment extends Fragment {
         cardEdit1.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(player1, 1);
+                changeColor(player1);
             }
         });
 
         cardEdit2.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(player2, 2);
+                changeColor(player2);
             }
         });
 
         cardEdit3.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(player3, 3);
+                changeColor(player3);
             }
         });
 
         cardEdit4.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(player4, 4);
+                changeColor(player4);
             }
         });
 
         cardEdit5.setOnClickListener(new EditCard.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                changeColor(player5, 5);
+                changeColor(player5);
             }
         });
-
 
         CardViewNative edit1View = (CardViewNative) view.findViewById(R.id.cardEdit1);
         CardViewNative edit2View = (CardViewNative) view.findViewById(R.id.cardEdit2);
@@ -108,13 +106,16 @@ public class EditFragment extends Fragment {
         return card;
     }
 
-    private void changeColor(Player p, int pId){
+    private void changeColor(Player p){
+        int pId = p.getId();
         int color = p.getColor();
         color++;
 
         if (color > 5){
             color = 0;
         }
+
+        p.setColor(color);
 
         switch (pId){
             case 1:

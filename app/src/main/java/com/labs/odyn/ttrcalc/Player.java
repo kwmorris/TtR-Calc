@@ -2,10 +2,8 @@ package com.labs.odyn.ttrcalc;
 
 public class Player {
 
-    private void Player(){}
-
     //Player Id Number
-    private static int id;
+    private int id;
 
     public void setId(int ID){
         id = ID;
@@ -16,7 +14,7 @@ public class Player {
     }
 
     //Player Name
-    private static String name;
+    private String name;
 
     public void setName(String pName){
         name = pName;

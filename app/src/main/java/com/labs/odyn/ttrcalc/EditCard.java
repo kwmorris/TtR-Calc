@@ -13,6 +13,7 @@ public class EditCard extends Card {
     protected String pName;
     protected Player player;
     protected int tColor;
+    protected EditText editName;
 
 
     public EditCard(Context context, Player p){
@@ -27,7 +28,7 @@ public class EditCard extends Card {
     @Override
     public void setupInnerViewElements(final ViewGroup parent, View view){
         //Retrieve elements
-        final EditText editName = (EditText) view.findViewById(R.id.editTitle);
+        editName = (EditText) view.findViewById(R.id.editTitle);
 
         pName = player.getName();
 
