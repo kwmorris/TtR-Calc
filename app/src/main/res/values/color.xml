@@ -23,6 +23,8 @@
 
     <color name="textLight">#F5F5F5</color>
     <color name="textDark">#212121</color>
-    <color name="textWhite">#FFFFFF</color>
+
+    <color name="textLowDark">#9E0000</color>
+    <color name="textLowLight">#9E2121</color>
 
 </resources>
